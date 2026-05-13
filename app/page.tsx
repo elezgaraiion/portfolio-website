@@ -248,13 +248,14 @@ function HeroSection() {
             { label: "View Projects", href: "#projects", primary: true },
             { label: "GitHub", href: "https://github.com/elezgaraiion", primary: false },
             { label: "LinkedIn", href: "https://www.linkedin.com/in/jon-elezgarai-miguel-a812883a6", primary: false },
-            { label: "Download CV", href: "/cv.pdf", primary: false },
+            { label: "Download CV", href: "/cv.pdf", primary: false, download: true },
           ].map((btn) => (
             <a
               key={btn.label}
               href={btn.href}
               target={btn.href.startsWith("http") ? "_blank" : undefined}
               rel={btn.href.startsWith("http") ? "noopener noreferrer" : undefined}
+              download={(btn as { download?: boolean }).download ? "Jon_Elezgarai_CV.pdf" : undefined}
               className={`rounded-full border px-6 py-2.5 text-sm font-light transition-all duration-200 ${btn.primary
                 ? "border-white bg-white text-black hover:bg-white/90"
                 : "border-white/20 text-white/60 hover:border-white/50 hover:text-white"
