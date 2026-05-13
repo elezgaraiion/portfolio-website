@@ -248,7 +248,7 @@ function HeroSection() {
             { label: "View Projects", href: "#projects", primary: true },
             { label: "GitHub", href: "https://github.com/elezgaraiion", primary: false },
             { label: "LinkedIn", href: "https://www.linkedin.com/in/jon-elezgarai-miguel-a812883a6", primary: false },
-            { label: "Download CV", href: "#", primary: false },
+            { label: "Download CV", href: "/cv.pdf", primary: false },
           ].map((btn) => (
             <a
               key={btn.label}
