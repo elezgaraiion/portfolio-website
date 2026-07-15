@@ -80,27 +80,27 @@ const COURSE_GROUPS: { label: string; courses: string[]; current?: boolean }[] =
 
 const SKILL_GROUPS = [
   {
-    label: "Programming",
+    label: "Programming Languages",
     items: ["Python", "SQL", "Java"],
   },
   {
-    label: "Data Science / AI",
+    label: "Machine Learning / AI",
     items: [
+      "PyTorch",
+      "scikit-learn",
+      "Transformers",
       "pandas",
       "NumPy",
-      "PyTorch",
-      "Transformers",
-      "scikit-learn",
       "Weights & Biases",
-      "Apache Kafka",
-      "Apache Spark",
-      "Hadoop",
-      "MongoDB",
     ],
   },
   {
-    label: "Tools",
-    items: ["Git", "Linux", "Docker", "Jupyter", "VSCode"],
+    label: "Big Data & Data Engineering",
+    items: ["Apache Spark", "Apache Kafka", "Hadoop", "MongoDB"],
+  },
+  {
+    label: "Developer Tools",
+    items: ["Git", "Docker", "Linux", "Jupyter", "VS Code"],
   },
 ];
 
@@ -303,12 +303,10 @@ function AboutSection() {
             these tools to domains where data can genuinely change how decisions are made.
           </p>
           <p>
-            My current thesis focuses on{" "}
+            My final-year thesis investigates{" "}
             <span className="text-white/80">spatial reasoning in multimodal models</span> —
             comparing image-only, text-only, and multimodal systems to understand where each
-            modality truly adds value. I'm also a lifelong sports fan and I'm drawn to the
-            way data is quietly reshaping how teams analyse performance — though I'm equally
-            excited to work on hard problems wherever the impact is real.
+            modality truly adds value and where fusion genuinely outperforms unimodal approaches.
           </p>
         </div>
       </div>
@@ -345,10 +343,12 @@ function EducationSection() {
               <Tag className="border-white/20 text-white/40">2022 — present</Tag>
             </div>
             <p className="text-[13px] leading-relaxed text-white/40 max-w-2xl">
-              Four-year degree spanning the full AI stack — from mathematical foundations
-              and algorithms to deep learning, NLP, computer vision, and large-scale
-              data systems. The curriculum is research-oriented and heavily project-based,
-              combining rigorous theory with hands-on implementation in Python, Java, and SQL.
+              Four-year research-oriented degree covering Machine Learning, Deep Learning, NLP,
+              Computer Vision, Big Data, Statistics, and Software Engineering.
+              Completed final-year thesis on{" "}
+              <span className="text-white/60">spatial reasoning in multimodal models</span>:
+              comparing image-only, text-only, and multimodal systems to identify where each
+              modality adds value.
             </p>
           </div>
 
@@ -387,80 +387,44 @@ function ProjectsSection() {
       className="relative border-t border-white/[0.07] px-6 py-28 sm:px-12 lg:px-24"
     >
       <SectionLabel>Projects</SectionLabel>
-      <SectionHeading>Current work</SectionHeading>
+      <SectionHeading>Final-year thesis</SectionHeading>
 
-      <div className="mt-12 space-y-6">
-        {/* Football analytics project */}
-        <article className="rounded-2xl border border-emerald-400/20 bg-emerald-400/[0.02] p-7 transition-colors hover:border-emerald-400/30">
-          <div className="flex flex-wrap items-start justify-between gap-4">
-            <div className="flex items-baseline gap-4">
-              <span className="font-mono text-xs text-white/20">01</span>
-              <h3 className="text-lg font-light text-white">
-                Finding Undervalued Football Players Using Data
-              </h3>
-            </div>
-            <Tag className="border-emerald-400/30 bg-emerald-400/5 text-emerald-400/80">
-              Sports Analytics
-            </Tag>
-          </div>
-
-          <p className="mt-4 max-w-2xl text-[14px] leading-relaxed text-white/40">
-            An end-to-end ML pipeline that predicts players' fair market value from{" "}
-            <span className="text-white/60">30+ engineered features</span> — per-90 stats,
-            composite role indices, non-linear age curves — and surfaces{" "}
-            <span className="text-white/60">market inefficiencies</span> by scoring the gap
-            between predicted and actual value. Four regression models compared via 5-fold CV;
-            XGBoost achieved R² ≈ 0.84. Results visualised through an interactive{" "}
-            <span className="text-white/60">Streamlit dashboard</span>.
-          </p>
-
-
-          <div className="mt-5 flex flex-wrap gap-2">
-            {["Python", "XGBoost", "scikit-learn", "pandas", "Streamlit", "FBref"].map((s) => (
-              <span
-                key={s}
-                className="rounded border border-white/[0.07] bg-white/[0.03] px-2.5 py-0.5 font-mono text-[11px] text-white/40"
-              >
-                {s}
-              </span>
-            ))}
-          </div>
-
-          <div className="mt-5 flex items-center gap-3">
-            <a
-              href="https://github.com/elezgaraiion/sports-analytics"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="flex items-center gap-2 text-[12px] font-mono text-white/30 transition-colors hover:text-white/60"
-            >
-              <svg width="13" height="13" viewBox="0 0 16 16" fill="currentColor">
-                <path d="M8 1.5C4.41 1.5 1.5 4.41 1.5 8c0 2.87 1.86 5.3 4.44 6.16.32.06.44-.14.44-.31v-1.09c-1.8.39-2.18-.87-2.18-.87-.3-.75-.72-1-.72-1-.59-.4.04-.39.04-.39.65.05 1 .67 1 .67.58 1 1.52.71 1.89.54.06-.42.23-.71.41-.87-1.44-.16-2.95-.72-2.95-3.2 0-.71.25-1.29.67-1.74-.07-.17-.29-.82.06-1.71 0 0 .55-.18 1.8.67.52-.14 1.08-.22 1.63-.22.55 0 1.11.07 1.63.22 1.25-.85 1.8-.67 1.8-.67.35.89.13 1.54.06 1.71.42.45.67 1.03.67 1.74 0 2.49-1.52 3.04-2.96 3.2.23.2.44.59.44 1.19v1.77c0 .17.12.37.44.31C12.64 13.3 14.5 10.87 14.5 8c0-3.59-2.91-6.5-6.5-6.5z" />
-              </svg>
-              View on GitHub
-            </a>
-          </div>
-        </article>
-
+      <div className="mt-12">
         {/* Thesis */}
         <article className="rounded-2xl border border-sky-400/20 bg-sky-400/[0.03] p-7 transition-colors hover:border-sky-400/30">
           <div className="flex flex-wrap items-start justify-between gap-4">
             <div className="flex items-baseline gap-4">
-              <span className="font-mono text-xs text-white/20">02</span>
+              <span className="font-mono text-xs text-white/20">01</span>
               <h3 className="text-lg font-light text-white">
                 Spatial Reasoning in Multimodal Models
               </h3>
             </div>
-            <Tag className="border-sky-400/40 bg-sky-400/5 text-sky-400">Thesis · In progress</Tag>
+            <Tag className="border-sky-400/40 bg-sky-400/5 text-sky-400">Final-Year Thesis · 2025–2026</Tag>
           </div>
 
           <p className="mt-4 max-w-2xl text-[14px] leading-relaxed text-white/40">
-            A comparative evaluation of{" "}
+            Research thesis comparing{" "}
             <span className="text-white/60">image-only</span>,{" "}
             <span className="text-white/60">text-only</span>, and{" "}
-            <span className="text-white/60">multimodal</span> models on spatial reasoning tasks.
-            The goal is to identify where each modality genuinely adds value and where the
-            fusion of information actually outperforms unimodal approaches.
+            <span className="text-white/60">multimodal</span> models on spatial reasoning benchmarks.
+            Evaluated fusion strategies to identify where combining modalities genuinely outperforms
+            unimodal approaches.
           </p>
+
+          <div className="mt-5 flex items-center gap-3">
+            <a
+              href="/JonElezgaraiGrAL.pdf"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-center gap-2 text-[12px] font-mono text-white/30 transition-colors hover:text-white/60"
+            >
+              <svg width="13" height="13" viewBox="0 0 14 14" fill="none">
+                <path d="M2 2h7l3 3v7H2V2z" stroke="currentColor" strokeWidth="1.2" strokeLinecap="round" strokeLinejoin="round" />
+                <path d="M9 2v3h3M4.5 7.5h5M4.5 9.5h3" stroke="currentColor" strokeWidth="1.2" strokeLinecap="round" />
+              </svg>
+              View PDF
+            </a>
+          </div>
         </article>
       </div>
     </section>
