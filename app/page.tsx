@@ -81,26 +81,30 @@ const COURSE_GROUPS: { label: string; courses: string[]; current?: boolean }[] =
 const SKILL_GROUPS = [
   {
     label: "Programming Languages",
-    items: ["Python", "SQL", "Java"],
+    items: ["Python", "SQL", "Go", "Java", "JavaScript"],
   },
   {
     label: "Machine Learning / AI",
     items: [
       "PyTorch",
       "scikit-learn",
-      "Transformers",
+      "Hugging Face Transformers",
       "pandas",
       "NumPy",
       "Weights & Biases",
     ],
   },
   {
-    label: "Big Data & Data Engineering",
+    label: "Data & Big Data",
     items: ["Apache Spark", "Apache Kafka", "Hadoop", "MongoDB"],
   },
   {
+    label: "Web & Software",
+    items: ["Vue.js", "REST APIs", "OpenAPI", "Docker", "Git"],
+  },
+  {
     label: "Developer Tools",
-    items: ["Git", "Docker", "Linux", "Jupyter", "VS Code"],
+    items: ["Linux", "Jupyter", "VS Code"],
   },
 ];
 
@@ -283,37 +287,50 @@ function AboutSection() {
 
         <div className="space-y-6 font-light leading-relaxed text-[15px] text-white/50">
           <p>
-            I'm a final-year{" "}
-            <span className="text-white/80">Artificial Intelligence student at UPV/EHU</span>,
-            originally from{" "}
-            <span className="text-white/80">Mutriku, Gipuzkoa</span>.
-            My background spans mathematics, statistics, machine learning, NLP,
-            computer vision, and large-scale data processing.
+            I'm a{" "}
+            <span className="text-white/80">
+              final-year Artificial Intelligence student at UPV/EHU
+            </span>
+            , originally from{" "}
+            <span className="text-white/80">Mutriku, Gipuzkoa</span>. My
+            background combines mathematics, statistics, machine learning,
+            natural language processing, computer vision, and data engineering.
           </p>
+
           <p>
             I spent part of my degree abroad on{" "}
-            <span className="text-white/80">Erasmus at La Sapienza in Rome</span>, taking
-            courses from both the ACSAI bachelor's and the AI Master's programme — an experience
-            that sharpened my technical depth and my ability to adapt quickly to new
-            environments and challenges.
+            <span className="text-white/80">
+              Erasmus at La Sapienza in Rome
+            </span>
+            , where I took both undergraduate and graduate-level courses in
+            artificial intelligence. This experience strengthened my technical
+            background and my ability to adapt to new academic and cultural
+            environments.
           </p>
+
           <p>
-            My goal is to build a career in{" "}
-            <span className="text-white/80">data science and machine learning</span>, applying
-            these tools to domains where data can genuinely change how decisions are made.
+            I'm particularly interested in{" "}
+            <span className="text-white/80">
+              machine learning, data science, and artificial intelligence
+            </span>
+            , with a focus on building practical solutions from data and
+            understanding the strengths and limitations of different models.
           </p>
+
           <p>
-            My final-year thesis investigates{" "}
-            <span className="text-white/80">spatial reasoning in multimodal models</span> —
-            comparing image-only, text-only, and multimodal systems to understand where each
-            modality truly adds value and where fusion genuinely outperforms unimodal approaches.
+            My final-year thesis focuses on{" "}
+            <span className="text-white/80">
+              spatial reasoning in multimodal models
+            </span>
+            , evaluating text-only, image-only, and vision-language systems to
+            understand when visual information genuinely improves reasoning
+            performance.
           </p>
         </div>
       </div>
     </section>
   );
 }
-
 function EducationSection() {
   const [openGroup, setOpenGroup] = useState<string | null>(null);
 
