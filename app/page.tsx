@@ -381,48 +381,194 @@ function EducationSection() {
 }
 
 function ProjectsSection() {
+  const projects = [
+    {
+      number: "01",
+      title: "Spatial Reasoning in Multimodal Models",
+      tag: "Final-Year Thesis · 2025–2026",
+      description: (
+        <>
+          Research thesis comparing{" "}
+          <span className="text-white/60">image-only</span>,{" "}
+          <span className="text-white/60">text-only</span>, and{" "}
+          <span className="text-white/60">multimodal</span> models on spatial reasoning
+          benchmarks. Extended the DecompSR benchmark with multimodal image representations
+          and evaluated when visual information genuinely improves reasoning performance.
+        </>
+      ),
+      pdf: "https://drive.google.com/file/d/1A16TADRBlHEt9XHKH9zzCtC8GxIsIYQg/view?usp=sharing",
+      highlighted: true,
+    },
+    {
+      number: "02",
+      title: "Multilingual Document Translation and Classification",
+      tag: "Natural Language Processing · 2025",
+      description: (
+        <>
+          Evaluated multilingual language models for{" "}
+          <span className="text-white/60">Basque document classification</span> using
+          machine translation and cross-lingual transfer strategies. Explored zero-shot
+          and few-shot approaches and analysed their impact on classification performance.
+        </>
+      ),
+      pdf: "https://drive.google.com/file/d/1I053b2ugdx8SvK2PQ2Ih4ZSmc_Kkuy7_/view?usp=sharing",
+      highlighted: false,
+    },
+    {
+      number: "03",
+      title: "Parkinson's Disease Detection",
+      tag: "Machine Learning · 2025",
+      description: (
+        <>
+          Developed and evaluated{" "}
+          <span className="text-white/60">machine learning models</span> for Parkinson's
+          disease detection using clinical data. Compared different classification
+          approaches and analysed model performance across experimental configurations.
+        </>
+      ),
+      pdf: "https://drive.google.com/file/d/11SeYXH7jCDhgK0w4ktMijnB-5vYGiFTe/view?usp=sharing",
+      highlighted: false,
+    },
+    {
+      number: "04",
+      title: "Age Estimation from Images",
+      tag: "Computer Vision · 2025",
+      description: (
+        <>
+          Developed a{" "}
+          <span className="text-white/60">computer vision pipeline</span> for age
+          estimation from facial images using deep learning techniques. Performed image
+          preprocessing, model training and evaluation to assess age prediction performance.
+        </>
+      ),
+      pdf: "https://drive.google.com/file/d/1yHFTIfKBsIPYpF3KupjB65ouhiU4LGtR/view?usp=sharing",
+      highlighted: false,
+    },
+  ];
+
   return (
     <section
       id="projects"
       className="relative border-t border-white/[0.07] px-6 py-28 sm:px-12 lg:px-24"
     >
       <SectionLabel>Projects</SectionLabel>
-      <SectionHeading>Final-year thesis</SectionHeading>
+      <SectionHeading>Selected work</SectionHeading>
 
-      <div className="mt-12">
-        {/* Thesis */}
-        <article className="rounded-2xl border border-sky-400/20 bg-sky-400/[0.03] p-7 transition-colors hover:border-sky-400/30">
+      <div className="mt-12 space-y-5">
+        {projects.map((project) => (
+          <article
+            key={project.number}
+            className={`rounded-2xl border p-7 transition-colors ${
+              project.highlighted
+                ? "border-sky-400/20 bg-sky-400/[0.03] hover:border-sky-400/30"
+                : "border-white/[0.07] bg-white/[0.02] hover:border-white/[0.14]"
+            }`}
+          >
+            <div className="flex flex-wrap items-start justify-between gap-4">
+              <div className="flex items-baseline gap-4">
+                <span className="font-mono text-xs text-white/20">
+                  {project.number}
+                </span>
+
+                <h3 className="text-lg font-light text-white">
+                  {project.title}
+                </h3>
+              </div>
+
+              <Tag
+                className={
+                  project.highlighted
+                    ? "border-sky-400/40 bg-sky-400/5 text-sky-400"
+                    : "border-white/20 text-white/40"
+                }
+              >
+                {project.tag}
+              </Tag>
+            </div>
+
+            <p className="mt-4 max-w-3xl text-[14px] leading-relaxed text-white/40">
+              {project.description}
+            </p>
+
+            <div className="mt-5 flex items-center gap-5">
+              <a
+                href={project.pdf}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center gap-2 font-mono text-[12px] text-white/30 transition-colors hover:text-white/70"
+              >
+                <svg
+                  width="13"
+                  height="13"
+                  viewBox="0 0 14 14"
+                  fill="none"
+                >
+                  <path
+                    d="M2 2h7l3 3v7H2V2z"
+                    stroke="currentColor"
+                    strokeWidth="1.2"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                  />
+                  <path
+                    d="M9 2v3h3M4.5 7.5h5M4.5 9.5h3"
+                    stroke="currentColor"
+                    strokeWidth="1.2"
+                    strokeLinecap="round"
+                  />
+                </svg>
+                View PDF
+              </a>
+            </div>
+          </article>
+        ))}
+
+        {/* WASAText */}
+        <article className="rounded-2xl border border-white/[0.07] bg-white/[0.02] p-7 transition-colors hover:border-white/[0.14]">
           <div className="flex flex-wrap items-start justify-between gap-4">
             <div className="flex items-baseline gap-4">
-              <span className="font-mono text-xs text-white/20">01</span>
+              <span className="font-mono text-xs text-white/20">05</span>
+
               <h3 className="text-lg font-light text-white">
-                Spatial Reasoning in Multimodal Models
+                WASAText — Full-Stack Messaging Application
               </h3>
             </div>
-            <Tag className="border-sky-400/40 bg-sky-400/5 text-sky-400">Final-Year Thesis · 2025–2026</Tag>
+
+            <Tag className="border-white/20 text-white/40">
+              Full-Stack Development · 2026
+            </Tag>
           </div>
 
-          <p className="mt-4 max-w-2xl text-[14px] leading-relaxed text-white/40">
-            Research thesis comparing{" "}
-            <span className="text-white/60">image-only</span>,{" "}
-            <span className="text-white/60">text-only</span>, and{" "}
-            <span className="text-white/60">multimodal</span> models on spatial reasoning benchmarks.
-            Evaluated fusion strategies to identify where combining modalities genuinely outperforms
-            unimodal approaches.
+          <p className="mt-4 max-w-3xl text-[14px] leading-relaxed text-white/40">
+            Developed a full-stack web messaging application inspired by
+            WhatsApp Web using{" "}
+            <span className="text-white/60">Go</span>,{" "}
+            <span className="text-white/60">Vue.js 3</span>, and{" "}
+            <span className="text-white/60">SQLite</span>. Implemented private
+            and group conversations, multimedia messaging, replies, forwarding,
+            reactions, message deletion, pagination, authentication, and a
+            modular REST API architecture.
           </p>
 
-          <div className="mt-5 flex items-center gap-3">
+          <div className="mt-5 flex items-center gap-5">
             <a
-              href="/JonElezgaraiGrAL.pdf"
+              href="https://github.com/elezgaraiion/wasa-homeworks"
               target="_blank"
               rel="noopener noreferrer"
-              className="flex items-center gap-2 text-[12px] font-mono text-white/30 transition-colors hover:text-white/60"
+              className="flex items-center gap-2 font-mono text-[12px] text-white/30 transition-colors hover:text-white/70"
             >
-              <svg width="13" height="13" viewBox="0 0 14 14" fill="none">
-                <path d="M2 2h7l3 3v7H2V2z" stroke="currentColor" strokeWidth="1.2" strokeLinecap="round" strokeLinejoin="round" />
-                <path d="M9 2v3h3M4.5 7.5h5M4.5 9.5h3" stroke="currentColor" strokeWidth="1.2" strokeLinecap="round" />
+              <svg
+                width="14"
+                height="14"
+                viewBox="0 0 16 16"
+                fill="none"
+              >
+                <path
+                  d="M8 1.5C4.41 1.5 1.5 4.41 1.5 8c0 2.87 1.86 5.3 4.44 6.16.32.06.44-.14.44-.31v-1.09c-1.8.39-2.18-.87-2.18-.87-.3-.75-.72-1-.72-1-.59-.4.04-.39.04-.39.65.05 1 .67 1 .67.58 1 1.52.71 1.89.54.06-.42.23-.71.41-.87-1.44-.16-2.95-.72-2.95-3.2 0-.71.25-1.29.67-1.74-.07-.17-.29-.82.06-1.71 0 0 .55-.18 1.8.67.52-.14 1.08-.22 1.63-.22.55 0 1.11.07 1.63.22 1.25-.85 1.8-.67 1.8-.67.35.89.13 1.54.06 1.71.42.45.67 1.03.67 1.74 0 2.49-1.52 3.04-2.96 3.2.23.2.44.59.44 1.19v1.77c0 .17.12.37.44.31C12.64 13.3 14.5 10.87 14.5 8c0-3.59-2.91-6.5-6.5-6.5z"
+                  fill="currentColor"
+                />
               </svg>
-              View PDF
+              GitHub
             </a>
           </div>
         </article>
