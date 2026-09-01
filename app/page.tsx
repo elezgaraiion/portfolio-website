@@ -289,7 +289,7 @@ function AboutSection() {
           <p>
             I'm a{" "}
             <span className="text-white/80">
-              final-year Artificial Intelligence student at UPV/EHU
+              BSc in Artificial Intelligence graduate from UPV/EHU
             </span>
             , originally from{" "}
             <span className="text-white/80">Mutriku, Gipuzkoa</span>. My
